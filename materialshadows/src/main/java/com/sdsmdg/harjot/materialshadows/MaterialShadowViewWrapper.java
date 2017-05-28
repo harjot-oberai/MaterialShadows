@@ -6,8 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.sdsmdg.harjot.materialshadows.outlineprovider.CustomViewOutlineProvider;
@@ -28,10 +28,12 @@ public class MaterialShadowViewWrapper extends RelativeLayout {
 
     Path path;
 
+    ArrayList<Path> viewPaths;
+
     float offsetX = 0.0f;
     float offsetY = 0.0f;
 
-    float alpha = 0.99f;
+    float shadowAlpha = 0.99f;
 
     public MaterialShadowViewWrapper(Context context) {
         super(context);
@@ -53,11 +55,13 @@ public class MaterialShadowViewWrapper extends RelativeLayout {
         for (int i = 0; i < N; ++i) {
             int attr = a.getIndex(i);
             if (attr == R.styleable.MaterialShadowViewWrapper_shadowAlpha) {
-                alpha = a.getFloat(attr, 0.99f);
+                shadowAlpha = a.getFloat(attr, 0.99f);
             } else if (attr == R.styleable.MaterialShadowViewWrapper_shadowOffsetX) {
                 offsetX = a.getFloat(attr, 0.0f);
+                Log.d("ATTR", offsetX + ";");
             } else if (attr == R.styleable.MaterialShadowViewWrapper_shadowOffsetY) {
                 offsetY = a.getFloat(attr, 0.0f);
+                Log.d("ATTR", offsetY + ";");
             }
         }
         a.recycle();
@@ -66,16 +70,66 @@ public class MaterialShadowViewWrapper extends RelativeLayout {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
+        if (viewPaths == null) {
+            viewPaths = new ArrayList<>();
+        }
         for (int i = 0; i < getChildCount(); i++) {
             View view = getChildAt(i);
             if (view instanceof MaterialShadowViewWrapper) {
                 continue;
             }
-            calculateAndRenderShadow(view);
+            calculateAndRenderShadow(view, i);
         }
     }
 
-    void calculateAndRenderShadow(final View view) {
+    public float getOffsetX() {
+        return offsetX;
+    }
+
+    public void setOffsetX(float offsetX) {
+        this.offsetX = offsetX;
+        updateShadows(-1);
+    }
+
+    public float getOffsetY() {
+        return offsetY;
+    }
+
+    public void setOffsetY(float offsetY) {
+        this.offsetY = offsetY;
+        updateShadows(-1);
+    }
+
+    public float getShadowAlpha() {
+        return shadowAlpha;
+    }
+
+    public void setShadowAlpha(float shadowAlpha) {
+        this.shadowAlpha = shadowAlpha;
+        updateShadows(-1);
+    }
+
+    void updateShadows(int pos) {
+        if (pos == -1) {
+            for (int i = 0; i < getChildCount(); i++) {
+                path = new Path();
+                path.set(viewPaths.get(i));
+                path.offset(offsetX, offsetY);
+
+                CustomViewOutlineProvider customViewOutlineProvider = new CustomViewOutlineProvider(path, shadowAlpha);
+                getChildAt(i).setOutlineProvider(customViewOutlineProvider);
+            }
+        } else {
+            path = new Path();
+            path.set(viewPaths.get(pos));
+            path.offset(offsetX, offsetY);
+
+            CustomViewOutlineProvider customViewOutlineProvider = new CustomViewOutlineProvider(path, shadowAlpha);
+            getChildAt(pos).setOutlineProvider(customViewOutlineProvider);
+        }
+    }
+
+    void calculateAndRenderShadow(final View view, int pos) {
         view.buildDrawingCache();
         bitmap = view.getDrawingCache();
 
@@ -97,9 +151,15 @@ public class MaterialShadowViewWrapper extends RelativeLayout {
             path.lineTo((float) hullPoints[i].x(), (float) hullPoints[i].y());
         }
 
+        if (viewPaths.size() - 1 < pos) {
+            viewPaths.add(pos, path);
+        } else {
+            viewPaths.set(pos, path);
+        }
+
         path.offset(offsetX, offsetY);
 
-        CustomViewOutlineProvider customViewOutlineProvider = new CustomViewOutlineProvider(path, alpha);
+        CustomViewOutlineProvider customViewOutlineProvider = new CustomViewOutlineProvider(path, shadowAlpha);
         view.setOutlineProvider(customViewOutlineProvider);
     }
 
