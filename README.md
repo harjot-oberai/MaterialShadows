@@ -90,6 +90,26 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 #### Result
 <img src="/screens/example_3.png"/>
 
+# Example Usage 4 (Semi-transparent views)
+#### XML
+```
+<com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:shadowOffsetX="-30"
+        app:shadowOffsetY="30">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:elevation="10dp"
+            android:background="#55000000" />
+
+</com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
+```
+#### Result
+<img src="/screens/example_4.png"/>
+
 # Documentation
 |XML attribute         |Description                             | Default Value     |
 |----------------------|----------------------------------------|-------------------|
