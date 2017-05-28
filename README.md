@@ -22,6 +22,15 @@ dependencies {
 }
 ```
 
+# How does this work ?
+The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the child views go through the same process of generating shadow as given below : 
+1. First a bitmap is generated from the drawing cache of the view.
+2. The bitmap is traversed pixel by pixel to remove all transparent pixels and get a list of points corresponding to the actual outline of the content of the view.
+3. Since the points corresponding to outline may give a concave path, hence <b>GrahamScan algorithm</b> is used to generate a convex hull of the outline points.
+4. A path is created from the points from the resulting convex hull.
+5. This path is passed to a `CustomViewOutlineProvider` object that is later attached to the view itself.
+6. Hence we get a convex shadow for any type of view based on its content.
+
 # Example Usage 1 (Simple)
 #### XML
 ```
@@ -80,6 +89,11 @@ dependencies {
 ```
 #### Result
 <img src="/screens/example_3.png"/>
+
+# Limitations
+1. Since the bitmap is traversed pixel by pixel, the performance for large views is bad. Hence the use of the library is limited to small views.
+2. Currently the shadow is generated only for direct children of the `MaterialShadowViewWrapper`. Hence if the desired are views are placed inside a Linear Layout or some other view group, then each view must be wrapped by seperate `MaterialShadowViewWrapper`. This doesn't affect performance as the number of operations are still the same, but affects the quality of code.
+3. Each child of `MaterialShadowViewWrapper` is assigned same offset and shadow intensity. If fine control over every view's shadow is required then it must be wrapped inside its own `MaterialShadowViewWrapper`. Again this doesn't affect the performance, just the quality of code.
 
 # License
 <b>MaterialShadows</b> is licensed under `MIT license`. View [license](LICENSE.md).
