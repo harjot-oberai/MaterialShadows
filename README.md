@@ -6,8 +6,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![by-SDS-MDG](https://img.shields.io/badge/by-SDS%2C%20MDG-blue.svg)](https://mdg.sdslabs.co)
 
-A library for integrating Material shadows seamlessly. 
-The library takes material shadows to next level by adding the following features :
+A library for seamlessly integrating Material shadows. 
+The library takes existing material shadows to next level by adding the following features :
 
 - <b>Convex shadows</b> : The shadows are not only rectangular or circular, they can take any convex shape depending on the view and its content.
 - <b>Support for shadow offsets</b> : The library allows developers to set <b>X</b> and <b>Y</b> offset for the shadows.
@@ -27,7 +27,7 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 1. First a bitmap is generated from the drawing cache of the view.
 2. The bitmap is traversed pixel by pixel to remove all transparent pixels and get a list of points corresponding to the actual outline of the content of the view.
 3. Since the points corresponding to outline may give a concave path, hence <b>GrahamScan algorithm</b> is used to generate a convex hull of the outline points.
-4. A path is created from the points from the resulting convex hull.
+4. A path is created from the points of the resulting convex hull.
 5. This path is passed to a `CustomViewOutlineProvider` object that is later attached to the view itself.
 6. Hence we get a convex shadow for any type of view based on its content.
 
@@ -119,7 +119,7 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 
 # Limitations
 1. Since the bitmap is traversed pixel by pixel, the performance for large views is bad. Hence the use of the library is limited to small views.
-2. Currently the shadow is generated only for direct children of the `MaterialShadowViewWrapper`. Hence if the desired are views are placed inside a Linear Layout or some other view group, then each view must be wrapped by seperate `MaterialShadowViewWrapper`. This doesn't affect performance as the number of operations are still the same, but affects the quality of code.
+2. Currently the shadow is generated only for direct children of the `MaterialShadowViewWrapper`. Hence if the desired views are placed inside a Linear Layout or some other view group, then each view must be wrapped by a seperate `MaterialShadowViewWrapper`. This doesn't affect the performance as the number of operations are still the same, but affects the quality of code.
 3. Each child of `MaterialShadowViewWrapper` is assigned same offset and shadow intensity. If fine control over every view's shadow is required then it must be wrapped inside its own `MaterialShadowViewWrapper`. Again this doesn't affect the performance, just the quality of code.
 
 # License
