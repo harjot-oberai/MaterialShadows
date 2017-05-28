@@ -111,11 +111,11 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 <img src="/screens/example_4.png"/>
 
 # Documentation
-|XML attribute         |Description                             | Default Value     |
-|----------------------|----------------------------------------|-------------------|
-|shadowOffsetX         |Set the X-offset of the shadow          |0.0f               |
-|shadowOffsetY         |Set the Y-offset of the shadow          |0.0f               |
-|shadowAlpha           |Set the value of shadow intensity (alpha)        |1.0f      |
+|XML attribute         |Java set methods              |Description                             | Default Value     |
+|----------------------|------------------------------|----------------------------------------|-------------------|
+|shadowOffsetX         |setOffsetX(...)               |Set the X-offset of the shadow          |0.0f               |
+|shadowOffsetY         |setOffsetX(...)               |Set the Y-offset of the shadow          |0.0f               |
+|shadowAlpha           |setShadowAlpha(...)           |Set the value of shadow intensity (alpha)        |1.0f      |
 
 # Limitations
 1. Since the bitmap is traversed pixel by pixel, the performance for large views is bad. Hence the use of the library is limited to small views.
