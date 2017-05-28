@@ -12,6 +12,33 @@ A library for integrating Material shadows seamlessly and in unconventional ways
 - <b>Support for shadow offsets</b> : The library allows developers to set <b>X</b> and <b>Y</b> offset for the shadows.
 - <b>Support for shadow intensity</b> : The library also has support for setting shadow intensity via `shadowAlpha` attribute.
 
+# Usage
+Just add the following dependency in your app's `build.gradle`
+```
+dependencies {
+      compile 'com.sdsmdg.harjot:materialshadows:0.9.0'
+}
+```
+
+# Example Usage 1 (Simple)
+#### XML
+```
+<com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_centerInParent="true"
+            android:elevation="5dp"
+            android:src="@drawable/poly" />
+
+</com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
+```
+#### Result
+<img src="/screens/example_1.png"/>
+
 # License
 MaterialShadows is licensed under `MIT license`. View [license](LICENSE.md).
 
