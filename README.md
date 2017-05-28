@@ -1,6 +1,11 @@
 <div align="center"><img src="/screens/cover.png"/></div>
 
 # MaterialShadows
+[![Platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
+[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![by-SDS-MDG](https://img.shields.io/badge/by-SDS%2C%20MDG-blue.svg)](https://mdg.sdslabs.co)
+
 A library for integrating Material shadows seamlessly and in unconventional ways. The library takes material shadows to next level by adding the following features :
 
 - <b>Convex shadows</b> : The shadows are not only rectangular or circular, the can take any convex shape depending on the view and its content.
