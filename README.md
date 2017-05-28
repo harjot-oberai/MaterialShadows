@@ -7,4 +7,7 @@ A library for integrating Material shadows seamlessly and in unconventional ways
 - <b>Support for shadow offsets</b> : The library allows developers to set <b>X</b> and <b>Y</b> offset for the shadows.
 - <b>Support for shadow intensity</b> : The library also has support for setting shadow intensity via `shadowAlpha` attribute.
 
+# License
+MaterialShadows is licensed under `MIT license`. View [license](LICENSE.md).
+
 
