@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Path;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -58,10 +57,8 @@ public class MaterialShadowViewWrapper extends RelativeLayout {
                 shadowAlpha = a.getFloat(attr, 0.99f);
             } else if (attr == R.styleable.MaterialShadowViewWrapper_shadowOffsetX) {
                 offsetX = a.getFloat(attr, 0.0f);
-                Log.d("ATTR", offsetX + ";");
             } else if (attr == R.styleable.MaterialShadowViewWrapper_shadowOffsetY) {
                 offsetY = a.getFloat(attr, 0.0f);
-                Log.d("ATTR", offsetY + ";");
             }
         }
         a.recycle();
