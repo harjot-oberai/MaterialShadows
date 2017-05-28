@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.sdsmdg.harjot.materialshadows.outlineprovider.CustomViewOutlineProvider;
@@ -67,6 +68,9 @@ public class MaterialShadowViewWrapper extends RelativeLayout {
         super.onLayout(changed, l, t, r, b);
         for (int i = 0; i < getChildCount(); i++) {
             View view = getChildAt(i);
+            if (view instanceof MaterialShadowViewWrapper) {
+                continue;
+            }
             calculateAndRenderShadow(view);
         }
     }
