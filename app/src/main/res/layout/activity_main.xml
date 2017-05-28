@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.sdsmdg.harjot.materialshadowsdemo.MainActivity">
 
+    <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        app:shadowOffsetX="-30"
+        app:shadowOffsetY="30">
 
+        <ImageView
+            android:id="@+id/image_1"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_centerInParent="true"
+            android:elevation="13dp"
+            android:src="@drawable/poly" />
+
+    </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
 
 </RelativeLayout>
