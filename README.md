@@ -18,7 +18,7 @@ The library takes material shadows to next level by adding the following feature
 Just add the following dependency in your app's `build.gradle`
 ```
 dependencies {
-      compile 'com.sdsmdg.harjot:materialshadows:0.9.0'
+      compile 'com.sdsmdg.harjot:materialshadows:1.0.0'
 }
 ```
 
