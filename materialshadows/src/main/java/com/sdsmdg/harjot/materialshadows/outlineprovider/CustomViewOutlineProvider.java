@@ -21,6 +21,11 @@ public class CustomViewOutlineProvider extends ViewOutlineProvider {
     @Override
     public void getOutline(View view, Outline outline) {
         outline.setConvexPath(path);
+        if (alpha >= 1.0f) {
+            alpha = 0.99f;
+        } else if (alpha < 0.0f) {
+            alpha = 0.0f;
+        }
         outline.setAlpha(alpha);
     }
 }
