@@ -90,6 +90,13 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 #### Result
 <img src="/screens/example_3.png"/>
 
+# Documentation
+|XML attribute         |Description                             | Default Value     |
+|----------------------|----------------------------------------|-------------------|
+|shadowOffsetX         |Set the X-offset of the shadow          |0.0f               |
+|shadowOffsetY         |Set the Y-offset of the shadow          |0.0f               |
+|shadowAlpha           |Set the value of shadow intensity (alpha)        |1.0f      |
+
 # Limitations
 1. Since the bitmap is traversed pixel by pixel, the performance for large views is bad. Hence the use of the library is limited to small views.
 2. Currently the shadow is generated only for direct children of the `MaterialShadowViewWrapper`. Hence if the desired are views are placed inside a Linear Layout or some other view group, then each view must be wrapped by seperate `MaterialShadowViewWrapper`. This doesn't affect performance as the number of operations are still the same, but affects the quality of code.
