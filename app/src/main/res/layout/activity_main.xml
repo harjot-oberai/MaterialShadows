@@ -5,36 +5,46 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:shadowOffsetX="30"
-    app:shadowOffsetY="30"
+    android:padding="20dp"
+    app:shadowOffsetX="15"
+    app:shadowOffsetY="20"
+    android:background="#FFFFFF"
     tools:context="com.sdsmdg.harjot.materialshadowsdemo.MainActivity">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:elevation="20dp"
+        android:id="@+id/image_1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:elevation="10dp"
+        android:padding="10dp"
+        android:src="@drawable/google" />
+
+    <ImageView
+        android:id="@+id/image_2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_toRightOf="@id/image_1"
+        android:elevation="10dp"
+        android:padding="10dp"
+        android:src="@drawable/playstore" />
+
+    <ImageView
+        android:id="@+id/image_3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_toRightOf="@id/image_2"
+        android:elevation="10dp"
+        android:padding="12dp"
+        android:src="@drawable/facebook" />
+
+    <ImageView
+        android:id="@+id/image_4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_toRightOf="@id/image_3"
+        android:elevation="10dp"
+        android:padding="5dp"
         android:src="@drawable/poly" />
-
-    <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:shadowOffsetX="-20"
-        app:shadowOffsetY="0">
-
-        <ImageView
-            android:id="@+id/image_1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="50dp"
-            android:layout_centerInParent="true"
-            android:elevation="18dp"
-            android:background="#FFFFFF"
-            android:src="@drawable/poly" />
-
-    </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
 
 </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
