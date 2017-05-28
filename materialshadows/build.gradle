@@ -1,5 +1,29 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'MaterialShadows'
+    bintrayName = 'materialshadows'
+
+    publishedGroupId = 'com.sdsmdg.harjot'
+    libraryName = 'MaterialShadows'
+    artifact = 'materialshadows'
+
+    libraryDescription = 'A library for integrating Material shadows seamlessly'
+
+    siteUrl = 'https://github.com/harjot-oberai/MaterialShadows/'
+    gitUrl = 'https://github.com/harjot-oberai/MaterialShadows/.git'
+
+    libraryVersion = '0.9.0'
+
+    developerId = 'harjot-oberai'
+    developerName = 'Harjot Singh Oberai'
+    developerEmail = 'harjot.oberai@gmail.com'
+
+    licenseName = 'The MIT License'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ["MIT"]
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -25,3 +49,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.3.0'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
