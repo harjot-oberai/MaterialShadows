@@ -30,7 +30,6 @@ dependencies {
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:layout_centerInParent="true"
             android:elevation="5dp"
             android:src="@drawable/poly" />
 
@@ -38,6 +37,26 @@ dependencies {
 ```
 #### Result
 <img src="/screens/example_1.png"/>
+
+# Example Usage 2 (Offset)
+#### XML
+```
+<com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:shadowOffsetX="-15"
+        app:shadowOffsetY="30">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:elevation="10dp"
+            android:src="@drawable/poly" />
+
+</com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
+```
+#### Result
+<img src="/screens/example_2.png"/>
 
 # License
 MaterialShadows is licensed under `MIT license`. View [license](LICENSE.md).
