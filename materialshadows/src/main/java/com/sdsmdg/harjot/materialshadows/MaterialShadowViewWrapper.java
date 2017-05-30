@@ -181,6 +181,14 @@ public class MaterialShadowViewWrapper extends RelativeLayout {
         return shouldShowWhenAllReady;
     }
 
+    public int getAnimationDuration() {
+        return animationDuration;
+    }
+
+    public void setAnimationDuration(int animationDuration) {
+        this.animationDuration = animationDuration;
+    }
+
     void clearShadowCache() {
         cancelTasksInProgress();
         uiThreadHandler.removeCallbacksAndMessages(null);
