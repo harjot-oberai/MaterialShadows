@@ -1,50 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    app:shadowOffsetX="15"
-    app:shadowOffsetY="20"
-    android:background="#FFFFFF"
-    tools:context="com.sdsmdg.harjot.materialshadowsdemo.MainActivity">
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/image_1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
-        android:elevation="10dp"
-        android:padding="10dp"
-        android:src="@drawable/google" />
+    <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
+        android:id="@+id/shadow_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="20dp"
+        app:shadowOffsetX="15"
+        app:shadowOffsetY="20"
+        tools:context="com.sdsmdg.harjot.materialshadowsdemo.MainActivity">
 
-    <ImageView
-        android:id="@+id/image_2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_toRightOf="@id/image_1"
-        android:elevation="10dp"
-        android:padding="10dp"
-        android:src="@drawable/playstore" />
+        <ImageView
+            android:id="@+id/image_1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:elevation="10dp"
+            android:padding="10dp"
+            android:src="@drawable/google" />
 
-    <ImageView
-        android:id="@+id/image_3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_toRightOf="@id/image_2"
-        android:elevation="10dp"
-        android:padding="12dp"
-        android:src="@drawable/facebook" />
+        <ImageView
+            android:id="@+id/image_2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_toRightOf="@id/image_1"
+            android:elevation="10dp"
+            android:padding="10dp"
+            android:src="@drawable/playstore" />
 
-    <ImageView
-        android:id="@+id/image_4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_toRightOf="@id/image_3"
-        android:elevation="10dp"
-        android:padding="5dp"
-        android:src="@drawable/poly" />
+        <ImageView
+            android:id="@+id/image_3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_toRightOf="@id/image_2"
+            android:elevation="10dp"
+            android:padding="12dp"
+            android:src="@drawable/facebook" />
 
-</com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
+        <ImageView
+            android:id="@+id/image_4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_toRightOf="@id/image_3"
+            android:elevation="10dp"
+            android:padding="5dp"
+            android:src="@drawable/poly" />
+
+    </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
+
+    <CheckBox
+        android:id="@+id/cb_calculate_async"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Render async" />
+
+    <CheckBox
+        android:id="@+id/cb_show_when_all_ready"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Show shadows simultaneously" />
+
+    <Button
+        android:id="@+id/btn_re_render"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Re-render All" />
+
+</LinearLayout>

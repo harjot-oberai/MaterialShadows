@@ -1,10 +1,12 @@
 package com.sdsmdg.harjot.materialshadows.utilities;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.Stack;
 
 public class GrahamScan {
-    private Stack<Point2D> hull = new Stack<Point2D>();
+    private Deque<Point2D> hull = new ArrayDeque<>();
 
     public GrahamScan(Point2D[] pts) {
 

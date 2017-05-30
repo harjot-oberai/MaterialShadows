@@ -4,5 +4,10 @@
         <attr name="shadowOffsetX" format="float" />
         <attr name="shadowOffsetY" format="float" />
         <attr name="shadowAlpha" format="float" />
+
+        <attr name="calculateAsync" format="boolean" />
+        <attr name="showWhenAllReady" format="boolean" />
+        <attr name="animateShadow" format="boolean" />
+        <attr name="animationDuration" format="integer" />
     </declare-styleable>
 </resources>
