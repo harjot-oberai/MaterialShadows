@@ -15,7 +15,7 @@ The library takes existing material shadows to next level by adding the followin
 
 # Usage
 Just add the following dependency in your app's `build.gradle`
-```
+```groovy
 dependencies {
       compile 'com.sdsmdg.harjot:materialshadows:1.0.0'
 }
@@ -32,7 +32,7 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 
 # Example Usage 1 (Simple)
 #### XML
-```
+```xml
 <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -50,7 +50,7 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 
 # Example Usage 2 (Offset)
 #### XML
-```
+```xml
 <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -70,7 +70,7 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 
 # Example Usage 3 (Shadow intensity)
 #### XML
-```
+```xml
 <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -91,7 +91,7 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 
 # Example Usage 4 (Semi-transparent views)
 #### XML
-```
+```xml
 <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
         android:layout_width="match_parent"
         android:layout_height="match_parent"
