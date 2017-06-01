@@ -19,12 +19,14 @@ The library takes existing material shadows to next level by adding the followin
 Just add the following dependency in your app's `build.gradle`
 ```groovy
 dependencies {
-      compile 'com.sdsmdg.harjot:materialshadows:1.1.0'
+      compile 'com.sdsmdg.harjot:materialshadows:1.2.0'
 }
 ```
 
 # How does this work ?
-The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the child views go through the same process of generating shadow as given below : 
+The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. The `MaterialShadowFrameLayoutWrapper` is an extension of `FrameLayout`. Use any one of them as per your convenience.
+
+All the child views go through the same process of generating shadow as given below : 
 1. First a bitmap is generated from the drawing cache of the view.
 2. The bitmap is traversed pixel by pixel to remove all transparent pixels and get a list of points corresponding to the actual outline of the content of the view.
 3. Since the points corresponding to outline may give a concave path, hence <b>GrahamScan algorithm</b> is used to generate a convex hull of the outline points.
@@ -113,6 +115,47 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 #### Result
 <img src="/screens/example_4.png"/>
 
+# Using MaterialShadows with custom ViewGroups
+Since the `ShadowGenerator.java` encapsulates all the code related to the generation of convex shadows, it is really easy to plug in convex shadows with any custom ViewGroup or some platform ViewGroup like `LinearLayout` etc.
+
+```java
+public class CustomShadowWrapper extends CustomViewGroup {
+      
+      ShadowGenerator shadowGenerator;
+      
+      @Override
+      protected void onLayout(boolean changed, int l, int t, int r, int b) {
+          super.onLayout(changed, l, t, r, b);
+          if (shadowGenerator == null) {
+              shadowGenerator = new ShadowGenerator(this, offsetX, offsetY, shadowAlpha, shouldShowWhenAllReady, shouldCalculateAsync, shouldAnimateShadow, animationDuration);
+          }
+          shadowGenerator.generate();
+      }
+    
+      @Override
+      protected void onDetachedFromWindow() {
+          super.onDetachedFromWindow();
+          if (shadowGenerator != null) {
+              shadowGenerator.releaseResources();
+          }
+      }
+      
+}
+```
+
+<b>Note : </b> Make sure to define all the 7 parameters required for `ShadowGenerator`, namely `offsetX`, `offsetY`, `shadowAlpha`, `shouldShowWhenAllReady`, `shouldCalculateAsync`, `shouldAnimateShadow`, `animationDuration` in the custom wrapper and handle changes in their values.
+
+In case any parameter value changes, say `OffsetX`, add the following code inside the setter method for `OffsetX` :
+```java
+public void setOffsetX(float offsetX) {
+      this.offsetX = offsetX;
+      if (shadowGenerator != null) {
+            shadowGenerator.setOffsetX(offsetX);
+      }
+}
+```
+See [MaterialShadowViewWrapper](/materialshadows/src/main/java/com/sdsmdg/harjot/materialshadows/MaterialShadowViewWrapper.java) for details.
+
 # Documentation
 |XML attribute         |Java set methods              |Description                             | Default Value     |
 |----------------------|------------------------------|----------------------------------------|-------------------|
@@ -126,8 +169,8 @@ The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. All the ch
 
 # Limitations
 1. Since the bitmap is traversed pixel by pixel, the performance for large views is bad. Hence the use of the library is limited to small views.
-2. Currently the shadow is generated only for direct children of the `MaterialShadowViewWrapper`. Hence if the desired views are placed inside a Linear Layout or some other view group, then each view must be wrapped by a seperate `MaterialShadowViewWrapper`. This doesn't affect the performance as the number of operations are still the same, but affects the quality of code.
-3. Each child of `MaterialShadowViewWrapper` is assigned same offset and shadow intensity. If fine control over every view's shadow is required then it must be wrapped inside its own `MaterialShadowViewWrapper`. Again this doesn't affect the performance, just the quality of code.
+2. Currently the shadow is generated only for direct children of the `MaterialShadowViewWrapper`. Hence if the desired views are placed inside a Linear Layout or some other view group, then each view must be wrapped by a seperate `MaterialShadowViewWrapper` or `MaterialShadowFrameLayoutWrapper` or a custom view group wrapper may be implemented.
+3. Each child of `MaterialShadowViewWrapper` or custom view group wrapper is assigned the same offset and shadow intensity. If fine control over every view's shadow is required then it must be wrapped inside its own `MaterialShadowViewWrapper` or `MaterialShadowFrameLayoutWrapper`.
 
 # Credits
 1. [Yaroslav](https://github.com/yarolegovich) : Implementation of asynchronous calculations and shadow animations. 
