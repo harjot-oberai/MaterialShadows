@@ -1,35 +1,21 @@
 package com.sdsmdg.harjot.materialshadows;
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.Path;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.util.SparseArray;
-import android.view.View;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 
-import com.sdsmdg.harjot.materialshadows.outlineprovider.CustomViewOutlineProvider;
 import com.sdsmdg.harjot.materialshadows.shadowutils.ShadowGenerator;
-import com.sdsmdg.harjot.materialshadows.utilities.GrahamScan;
-import com.sdsmdg.harjot.materialshadows.utilities.Point2D;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import static com.sdsmdg.harjot.materialshadows.Constants.DEFAULT_ANIMATE_SHADOW;
+import static com.sdsmdg.harjot.materialshadows.Constants.DEFAULT_ANIMATION_TIME;
+import static com.sdsmdg.harjot.materialshadows.Constants.DEFAULT_CALCULATE_ASYNC;
+import static com.sdsmdg.harjot.materialshadows.Constants.DEFAULT_SHADOW_ALPHA;
+import static com.sdsmdg.harjot.materialshadows.Constants.DEFAULT_SHOW_WHEN_ALL_READY;
+import static com.sdsmdg.harjot.materialshadows.Constants.DEFAULT_X_OFFSET;
+import static com.sdsmdg.harjot.materialshadows.Constants.DEFAULT_Y_OFFSET;
 
-import static com.sdsmdg.harjot.materialshadows.Constants.*;
-
-public class MaterialShadowViewWrapper extends RelativeLayout {
+public class MaterialShadowFrameLayoutWrapper extends FrameLayout {
 
     float offsetX = DEFAULT_X_OFFSET;
     float offsetY = DEFAULT_Y_OFFSET;
@@ -44,16 +30,16 @@ public class MaterialShadowViewWrapper extends RelativeLayout {
 
     ShadowGenerator shadowGenerator;
 
-    public MaterialShadowViewWrapper(Context context) {
+    public MaterialShadowFrameLayoutWrapper(Context context) {
         super(context);
     }
 
-    public MaterialShadowViewWrapper(Context context, AttributeSet attrs) {
+    public MaterialShadowFrameLayoutWrapper(Context context, AttributeSet attrs) {
         super(context, attrs);
         initXMLAttrs(context, attrs);
     }
 
-    public MaterialShadowViewWrapper(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MaterialShadowFrameLayoutWrapper(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initXMLAttrs(context, attrs);
     }
@@ -175,4 +161,5 @@ public class MaterialShadowViewWrapper extends RelativeLayout {
             shadowGenerator.setAnimationDuration(animationDuration);
         }
     }
+
 }
