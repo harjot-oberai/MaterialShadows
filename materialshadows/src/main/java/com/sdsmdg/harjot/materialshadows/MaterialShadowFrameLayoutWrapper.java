@@ -45,23 +45,23 @@ public class MaterialShadowFrameLayoutWrapper extends FrameLayout {
     }
 
     void initXMLAttrs(Context context, AttributeSet attrs) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.MaterialShadowViewWrapper);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.MaterialShadowFrameLayoutWrapper);
         final int N = a.getIndexCount();
         for (int i = 0; i < N; ++i) {
             int attr = a.getIndex(i);
-            if (attr == R.styleable.MaterialShadowViewWrapper_shadowAlpha) {
+            if (attr == R.styleable.MaterialShadowFrameLayoutWrapper_shadowAlpha) {
                 shadowAlpha = a.getFloat(attr, DEFAULT_SHADOW_ALPHA);
-            } else if (attr == R.styleable.MaterialShadowViewWrapper_shadowOffsetX) {
+            } else if (attr == R.styleable.MaterialShadowFrameLayoutWrapper_shadowOffsetX) {
                 offsetX = a.getFloat(attr, DEFAULT_X_OFFSET);
-            } else if (attr == R.styleable.MaterialShadowViewWrapper_shadowOffsetY) {
+            } else if (attr == R.styleable.MaterialShadowFrameLayoutWrapper_shadowOffsetY) {
                 offsetY = a.getFloat(attr, DEFAULT_Y_OFFSET);
-            } else if (attr == R.styleable.MaterialShadowViewWrapper_calculateAsync) {
+            } else if (attr == R.styleable.MaterialShadowFrameLayoutWrapper_calculateAsync) {
                 shouldCalculateAsync = a.getBoolean(attr, DEFAULT_CALCULATE_ASYNC);
-            } else if (attr == R.styleable.MaterialShadowViewWrapper_animateShadow) {
+            } else if (attr == R.styleable.MaterialShadowFrameLayoutWrapper_animateShadow) {
                 shouldAnimateShadow = a.getBoolean(attr, DEFAULT_ANIMATE_SHADOW);
-            } else if (attr == R.styleable.MaterialShadowViewWrapper_showWhenAllReady) {
+            } else if (attr == R.styleable.MaterialShadowFrameLayoutWrapper_showWhenAllReady) {
                 shouldShowWhenAllReady = a.getBoolean(attr, DEFAULT_SHOW_WHEN_ALL_READY);
-            } else if (attr == R.styleable.MaterialShadowViewWrapper_animationDuration) {
+            } else if (attr == R.styleable.MaterialShadowFrameLayoutWrapper_animationDuration) {
                 animationDuration = a.getInteger(attr, DEFAULT_ANIMATION_TIME);
             }
         }

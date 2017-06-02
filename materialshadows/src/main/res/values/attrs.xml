@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="MaterialShadowViewWrapper">
-        <attr name="shadowOffsetX" format="float" />
-        <attr name="shadowOffsetY" format="float" />
-        <attr name="shadowAlpha" format="float" />
 
-        <attr name="calculateAsync" format="boolean" />
-        <attr name="showWhenAllReady" format="boolean" />
-        <attr name="animateShadow" format="boolean" />
-        <attr name="animationDuration" format="integer" />
+    <attr name="shadowOffsetX" format="float" />
+    <attr name="shadowOffsetY" format="float" />
+    <attr name="shadowAlpha" format="float" />
+
+    <attr name="calculateAsync" format="boolean" />
+    <attr name="showWhenAllReady" format="boolean" />
+    <attr name="animateShadow" format="boolean" />
+    <attr name="animationDuration" format="integer" />
+
+    <declare-styleable name="MaterialShadowViewWrapper">
+        <attr name="shadowOffsetX" />
+        <attr name="shadowOffsetY" />
+        <attr name="shadowAlpha" />
+
+        <attr name="calculateAsync" />
+        <attr name="showWhenAllReady" />
+        <attr name="animateShadow" />
+        <attr name="animationDuration" />
     </declare-styleable>
+
+    <declare-styleable name="MaterialShadowFrameLayoutWrapper">
+        <attr name="shadowOffsetX" />
+        <attr name="shadowOffsetY" />
+        <attr name="shadowAlpha" />
+
+        <attr name="calculateAsync" />
+        <attr name="showWhenAllReady" />
+        <attr name="animateShadow" />
+        <attr name="animationDuration" />
+    </declare-styleable>
+
 </resources>
