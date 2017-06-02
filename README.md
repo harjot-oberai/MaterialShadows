@@ -154,7 +154,22 @@ public void setOffsetX(float offsetX) {
       }
 }
 ```
-See [MaterialShadowViewWrapper](/materialshadows/src/main/java/com/sdsmdg/harjot/materialshadows/MaterialShadowViewWrapper.java) for details.
+
+If you want to add custom XML attributes with your `CustomShadowWrapper` class, add this to `attrs.xml` ([here](/materialshadows/src/main/res/values/attrs.xml)) and handle them in your `CustomShadowWrapper` class accordingly.
+```xml
+<declare-styleable name="CustomShadowWrapper">
+        <attr name="shadowOffsetX" />
+        <attr name="shadowOffsetY" />
+        <attr name="shadowAlpha" />
+
+        <attr name="calculateAsync" />
+        <attr name="showWhenAllReady" />
+        <attr name="animateShadow" />
+        <attr name="animationDuration" />
+    </declare-styleable>
+```
+
+See [MaterialShadowViewWrapper](/materialshadows/src/main/java/com/sdsmdg/harjot/materialshadows/MaterialShadowViewWrapper.java) for more details.
 
 # Documentation
 |XML attribute         |Java set methods              |Description                             | Default Value     |
