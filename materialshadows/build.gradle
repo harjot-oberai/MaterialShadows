@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/harjot-oberai/MaterialShadows/'
     gitUrl = 'https://github.com/harjot-oberai/MaterialShadows/.git'
 
-    libraryVersion = '1.2.0'
+    libraryVersion = '1.2.5'
 
     developerId = 'harjot-oberai'
     developerName = 'Harjot Singh Oberai'
