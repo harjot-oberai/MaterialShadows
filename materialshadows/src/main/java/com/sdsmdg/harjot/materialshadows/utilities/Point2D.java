@@ -88,21 +88,13 @@ public class Point2D implements Comparable<Point2D> {
 
     private static class XOrder implements Comparator<Point2D> {
         public int compare(Point2D p, Point2D q) {
-            if (p.x < q.x)
-                return -1;
-            if (p.x > q.x)
-                return +1;
-            return 0;
+            return Double.compare(p.x, q.x);
         }
     }
 
     private static class YOrder implements Comparator<Point2D> {
         public int compare(Point2D p, Point2D q) {
-            if (p.y < q.y)
-                return -1;
-            if (p.y > q.y)
-                return +1;
-            return 0;
+            return Double.compare(p.y, q.y);
         }
     }
 
