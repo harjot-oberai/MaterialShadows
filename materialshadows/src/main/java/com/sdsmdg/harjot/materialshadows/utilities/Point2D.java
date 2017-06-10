@@ -3,12 +3,7 @@ package com.sdsmdg.harjot.materialshadows.utilities;
 import java.util.Comparator;
 
 public class Point2D implements Comparable<Point2D> {
-    public static final Comparator<Point2D> X_ORDER = new XOrder();
-    public static final Comparator<Point2D> Y_ORDER = new YOrder();
-    public static final Comparator<Point2D> R_ORDER = new ROrder();
     public final Comparator<Point2D> POLAR_ORDER = new PolarOrder();
-    public final Comparator<Point2D> ATAN2_ORDER = new Atan2Order();
-    public final Comparator<Point2D> DISTANCE_TO_ORDER = new DistanceToOrder();
 
     private final double x; // x coordinate
     private final double y; // y coordinate
@@ -30,22 +25,12 @@ public class Point2D implements Comparable<Point2D> {
         return x;
     }
 
-    public double y()  {
+    public double y() {
         return y;
     }
 
     public double r() {
         return Math.sqrt(x * x + y * y);
-    }
-
-    public double theta() {
-        return Math.atan2(y, x);
-    }
-
-    private double angleTo(Point2D that) {
-        double dx = that.x - this.x;
-        double dy = that.y - this.y;
-        return Math.atan2(dy, dx);
     }
 
     public static int ccw(Point2D a, Point2D b, Point2D c) {
@@ -58,22 +43,6 @@ public class Point2D implements Comparable<Point2D> {
             return 0;
     }
 
-    public static double area2(Point2D a, Point2D b, Point2D c) {
-        return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
-    }
-
-    public double distanceTo(Point2D that) {
-        double dx = this.x - that.x;
-        double dy = this.y - that.y;
-        return Math.sqrt(dx * dx + dy * dy);
-    }
-
-    public double distanceSquaredTo(Point2D that) {
-        double dx = this.x - that.x;
-        double dy = this.y - that.y;
-        return dx * dx + dy * dy;
-    }
-
     public int compareTo(Point2D that) {
         if (this.y < that.y)
             return -1;
@@ -84,50 +53,6 @@ public class Point2D implements Comparable<Point2D> {
         if (this.x > that.x)
             return +1;
         return 0;
-    }
-
-    private static class XOrder implements Comparator<Point2D> {
-        public int compare(Point2D p, Point2D q) {
-            if (p.x < q.x)
-                return -1;
-            if (p.x > q.x)
-                return +1;
-            return 0;
-        }
-    }
-
-    private static class YOrder implements Comparator<Point2D> {
-        public int compare(Point2D p, Point2D q) {
-            if (p.y < q.y)
-                return -1;
-            if (p.y > q.y)
-                return +1;
-            return 0;
-        }
-    }
-
-    private static class ROrder implements Comparator<Point2D> {
-        public int compare(Point2D p, Point2D q) {
-            double delta = (p.x * p.x + p.y * p.y) - (q.x * q.x + q.y * q.y);
-            if (delta < 0)
-                return -1;
-            if (delta > 0)
-                return +1;
-            return 0;
-        }
-    }
-
-    private class Atan2Order implements Comparator<Point2D> {
-        public int compare(Point2D q1, Point2D q2) {
-            double angle1 = angleTo(q1);
-            double angle2 = angleTo(q2);
-            if (angle1 < angle2)
-                return -1;
-            else if (angle1 > angle2)
-                return +1;
-            else
-                return 0;
-        }
     }
 
     private class PolarOrder implements Comparator<Point2D> {
@@ -150,19 +75,6 @@ public class Point2D implements Comparable<Point2D> {
                     return 0;
             } else
                 return -ccw(Point2D.this, q1, q2); // both above or below
-        }
-    }
-
-    private class DistanceToOrder implements Comparator<Point2D> {
-        public int compare(Point2D p, Point2D q) {
-            double dist1 = distanceSquaredTo(p);
-            double dist2 = distanceSquaredTo(q);
-            if (dist1 < dist2)
-                return -1;
-            else if (dist1 > dist2)
-                return +1;
-            else
-                return 0;
         }
     }
 
