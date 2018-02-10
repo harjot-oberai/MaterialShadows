@@ -190,5 +190,11 @@ See [MaterialShadowViewWrapper](/materialshadows/src/main/java/com/sdsmdg/harjot
 # Credits
 1. [Yaroslav](https://github.com/yarolegovich) : Implementation of asynchronous calculations and shadow animations. 
 
+## Third Party Bindings
+
+### React Native
+You may now use this library with [React Native](https://github.com/facebook/react-native) via the module [here](https://github.com/prscX/react-native-material-shadows)
+
+
 # License
 <b>MaterialShadows</b> is licensed under `MIT license`. View [license](LICENSE.md).
