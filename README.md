@@ -23,6 +23,10 @@ dependencies {
 }
 ```
 
+# Third Party Bindings
+<b>[React Native](https://github.com/facebook/react-native)</b><br>
+You may now use this library with `react-native` via the module [here](https://github.com/prscX/react-native-material-shadows), built by [Pranav Raj Singh Chauhan](https://github.com/prscX).
+
 # How does this work ?
 The `MaterialShadowViewWrapper` is an extension of `Relative Layout`. The `MaterialShadowFrameLayoutWrapper` is an extension of `FrameLayout`. Use any one of them as per your convenience.
 
@@ -188,12 +192,8 @@ See [MaterialShadowViewWrapper](/materialshadows/src/main/java/com/sdsmdg/harjot
 3. Each child of `MaterialShadowViewWrapper` or custom view group wrapper is assigned the same offset and shadow intensity. If fine control over every view's shadow is required then it must be wrapped inside its own `MaterialShadowViewWrapper` or `MaterialShadowFrameLayoutWrapper`.
 
 # Credits
-1. [Yaroslav](https://github.com/yarolegovich) : Implementation of asynchronous calculations and shadow animations. 
-
-## Third Party Bindings
-
-### React Native
-You may now use this library with [React Native](https://github.com/facebook/react-native) via the module [here](https://github.com/prscX/react-native-material-shadows)
+1. [Yaroslav](https://github.com/yarolegovich) : Implementation of asynchronous calculations and shadow animations.
+2. [Pranav Raj Singh Chauhan](https://github.com/prscX) : Building react-native bridge plugin for the library.
 
 
 # License
