@@ -84,7 +84,7 @@ All the child views go through the same process of generating shadow as given be
 <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:shadowOffsetX="-15"
+        app:shadowOffsetX="15"
         app:shadowOffsetY="30"
         app:shadowAlpha="0.9">
 
