@@ -19,7 +19,7 @@ The library takes existing material shadows to next level by adding the followin
 Just add the following dependency in your app's `build.gradle`
 ```groovy
 dependencies {
-      implementation 'com.sdsmdg.harjot:materialshadows:1.2.5'
+      compile 'com.sdsmdg.harjot:materialshadows:1.2.5'
 }
 ```
 
