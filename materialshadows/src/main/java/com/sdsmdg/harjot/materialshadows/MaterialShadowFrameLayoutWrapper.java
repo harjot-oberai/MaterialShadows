@@ -82,6 +82,7 @@ public class MaterialShadowFrameLayoutWrapper extends FrameLayout {
         super.onDetachedFromWindow();
         if (shadowGenerator != null) {
             shadowGenerator.releaseResources();
+            shadowGenerator = null;
         }
     }
 

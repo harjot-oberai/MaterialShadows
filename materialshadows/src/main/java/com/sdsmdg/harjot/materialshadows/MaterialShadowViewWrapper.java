@@ -96,6 +96,7 @@ public class MaterialShadowViewWrapper extends RelativeLayout {
         super.onDetachedFromWindow();
         if (shadowGenerator != null) {
             shadowGenerator.releaseResources();
+            shadowGenerator = null;
         }
     }
 
